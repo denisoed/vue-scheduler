@@ -1,11 +1,9 @@
-import Vue from 'vue'
-import App from './App.vue'
-import VueScheduler from '../src/plugin.js'
-import router from './router'
+import Vue from 'vue';
+import App from './App';
+import VueSchedulerPlugin from '../src/plugin';
 
-Vue.use(VueScheduler)
+Vue.use(VueSchedulerPlugin);
 
 new Vue({
-  router,
   render: h => h(App)
-}).$mount('#app')
+}).$mount('#app');
