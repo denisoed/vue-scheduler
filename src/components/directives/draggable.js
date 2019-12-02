@@ -16,7 +16,7 @@ const draggable = {
       if (newTop > bottomEdge) {
         newTop = bottomEdge;
       }
-      let targetColumn = document.getElementById(event && event.target && event.target.id);
+      const targetColumn = document.getElementById(event && event.target && event.target.id);
       if (targetColumn && targetColumn.className === 'scheduler_column') {
         targetColumn.appendChild(currentLog);
       }
@@ -28,7 +28,7 @@ const draggable = {
       document.removeEventListener('mouseup', mouseup);
     }
 
-    el.addEventListener('mousedown', (e) => {
+    el.addEventListener('mousedown', e => {
       currentLog = e.target;
       document.addEventListener('mousemove', mousemove);
       document.addEventListener('mouseup', mouseup);
