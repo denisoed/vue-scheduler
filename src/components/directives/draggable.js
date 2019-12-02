@@ -1,6 +1,7 @@
 const draggable = {
   bind(el, binding, vnode) {
     let column;
+    let currentLog;
 
     vnode.context.$nextTick(() => {
       column = vnode.elm.parentElement;
@@ -15,6 +16,10 @@ const draggable = {
       if (newTop > bottomEdge) {
         newTop = bottomEdge;
       }
+      let targetColumn = document.getElementById(event && event.target && event.target.id);
+      if (targetColumn && targetColumn.className === 'scheduler_column') {
+        targetColumn.appendChild(currentLog);
+      }
       el.style.top = `${newTop}px`;
     }
 
@@ -23,7 +28,8 @@ const draggable = {
       document.removeEventListener('mouseup', mouseup);
     }
 
-    el.addEventListener('mousedown', () => {
+    el.addEventListener('mousedown', (e) => {
+      currentLog = e.target;
       document.addEventListener('mousemove', mousemove);
       document.addEventListener('mouseup', mouseup);
       return false;

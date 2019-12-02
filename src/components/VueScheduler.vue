@@ -3,18 +3,18 @@
     <div class="scheduler_column scheduler_column-time">
       <div class="scheduler_column-row" v-for="(time, i) in timeList" :key="i">{{ time }}</div>
     </div>
-    <div class="scheduler_column">
+    <div id="scheduler_column-1" class="scheduler_column">
       <VueSchedulerLog />
     </div>
-    <div class="scheduler_column">
+    <div id="scheduler_column-2" class="scheduler_column">
     </div>
-    <div class="scheduler_column">
+    <div id="scheduler_column-3" class="scheduler_column">
     </div>
-    <div class="scheduler_column">
+    <div id="scheduler_column-4" class="scheduler_column">
     </div>
-    <div class="scheduler_column">
+    <div id="scheduler_column-5" class="scheduler_column">
     </div>
-    <div class="scheduler_column">
+    <div id="scheduler_column-6" class="scheduler_column">
     </div>
   </section>
 </template>
@@ -28,7 +28,6 @@ export default {
   components: { VueSchedulerLog },
   data() {
     return {
-      dayList: [1, 2, 3, 4, 5, 6],
       timeList: []
     };
   },
